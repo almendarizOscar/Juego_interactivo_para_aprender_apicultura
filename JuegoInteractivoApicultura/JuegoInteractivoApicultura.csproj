@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1378ACF3-D4A2-4DA1-973F-83FA64066C19}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JuegoInteractivoApicultura</RootNamespace>
+    <AssemblyName>JuegoInteractivoApicultura</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbejaReina.cs" />
+    <Compile Include="Alimento.cs" />
+    <Compile Include="AlmacenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlmacenForm.Designer.cs">
+      <DependentUpon>AlmacenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alza.cs" />
+    <Compile Include="Apicultor.cs" />
+    <Compile Include="Clima.cs" />
+    <Compile Include="Colmena.cs" />
+    <Compile Include="Colmenar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Colmenar.Designer.cs">
+      <DependentUpon>Colmenar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Foco.cs" />
+    <Compile Include="GrupoAbejas.cs" />
+    <Compile Include="MarcadorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcadorForm.Designer.cs">
+      <DependentUpon>MarcadorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TiendaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiendaForm.Designer.cs">
+      <DependentUpon>TiendaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vida.cs" />
+    <Compile Include="VistaGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaGeneral.Designer.cs">
+      <DependentUpon>VistaGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaInterna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaInterna.Designer.cs">
+      <DependentUpon>VistaInterna.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AlmacenForm.resx">
+      <DependentUpon>AlmacenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Colmenar.resx">
+      <DependentUpon>Colmenar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarcadorForm.resx">
+      <DependentUpon>MarcadorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiendaForm.resx">
+      <DependentUpon>TiendaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaGeneral.resx">
+      <DependentUpon>VistaGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaInterna.resx">
+      <DependentUpon>VistaInterna.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

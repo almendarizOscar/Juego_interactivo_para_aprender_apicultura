@@ -1,0 +1,70 @@
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe.config
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csprojAssemblyReference.cache
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Form1.resources
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Properties.Resources.resources
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.GenerateResource.cache
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.CoreCompileInputs.cache
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.exe
+C:\Users\beto\Documents\11\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csprojAssemblyReference.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Properties.Resources.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.GenerateResource.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.CoreCompileInputs.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe.config
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Almacen.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Colmenar.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Informacion.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Inicio.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaGeneral.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaInterna.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe.config
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csprojAssemblyReference.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Colmenar.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Properties.Resources.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaGeneral.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaInterna.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.GenerateResource.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.CoreCompileInputs.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.AlmacenForm.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.MarcadorForm.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\JuegoInteractivoDeApicultura - NO TOCAR\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.TiendaForm.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csprojAssemblyReference.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.AlmacenForm.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Colmenar.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.MarcadorForm.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Properties.Resources.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.TiendaForm.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaGeneral.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaInterna.resources
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.GenerateResource.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.CoreCompileInputs.cache
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe.config
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Documents\Semestre Agosto 2020\Tecnologia Informatica\PROYECTO\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe.config
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\bin\Debug\JuegoInteractivoApicultura.pdb
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csprojAssemblyReference.cache
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.AlmacenForm.resources
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Colmenar.resources
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.MarcadorForm.resources
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.Properties.Resources.resources
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.TiendaForm.resources
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaGeneral.resources
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.VistaInterna.resources
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.GenerateResource.cache
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.csproj.CoreCompileInputs.cache
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.exe
+C:\Users\oscar\Desktop\PROYECTO\JuegoInteractivoApicultura\obj\Debug\JuegoInteractivoApicultura.pdb
