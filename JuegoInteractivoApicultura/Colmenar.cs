@@ -82,7 +82,12 @@ namespace JuegoInteractivoApicultura
         //Ir al Almacén
         private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form almacen = new AlmacenForm();
+            int cam = tienda.Camaras;
+            int alz = tienda.Alzas;
+            int nucl = tienda.Nucleos;
+            int rei = tienda.Reinas;
+
+            Form almacen = new AlmacenForm(apicultor.Dinero, cam, alz, nucl, rei);
             almacen.Show();
         }
 
@@ -275,6 +280,14 @@ namespace JuegoInteractivoApicultura
         //Lo que se va a ejecutar cuando el intervalo del reloj se cumpla
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //checa que el apicultor tenga dinero y colmenas
+            if (apicultor.Dinero == 0 && apicultor.col.Count == 0)
+            {
+                MessageBox.Show("juego terminado");
+                MarcadorForm marcador = new MarcadorForm(apicultor.col.Count, anio, apicultor.Dinero, colmenas_Muertas);
+                marcador.Show();
+            }
+
             barra.Location = new Point(barra.Location.X + 2, 58); //Mover la barra                    
             //Cambio del clima  
             actulizar_estacion();
@@ -530,8 +543,9 @@ namespace JuegoInteractivoApicultura
         //Ir a la tienda
         private void tiendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form tiena = new TiendaForm();
-            tiena.Show();
+            tienda.Show();
+            int nuevosal = tienda.Saldores;
+            apicultor.Dinero = nuevosal;
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -540,7 +554,9 @@ namespace JuegoInteractivoApicultura
         //Terminar partida
         private void terminarPartidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("juego terminado");
+            MarcadorForm marcador = new MarcadorForm(apicultor.col.Count, anio, apicultor.Dinero, colmenas_Muertas);
+            marcador.Show();
         }
         //Nuevo apiario
         private void nuevoApiarioToolStripMenuItem_Click(object sender, EventArgs e)
