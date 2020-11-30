@@ -13,6 +13,30 @@ namespace JuegoInteractivoApicultura
         private int dinero;
         private List<Colmena> colmena;
         private AlmacenForm almacen;
+
+        public int Dinero
+        {
+            set
+            {
+                dinero = value;
+            }
+            get
+            {
+                return dinero;
+            }
+        }
+
+        public List<Colmena> col
+        {
+            set
+            {
+                colmena = value;
+            }
+            get
+            {
+                return colmena;
+            }
+        }
         public List<Colmena> GetColmenas() { return colmena; }
         //Variables para la división de colmenas
         private Colmena colmena_seleccionada;

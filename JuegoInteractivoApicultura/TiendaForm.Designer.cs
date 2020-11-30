@@ -232,6 +232,7 @@
             this.cb_abeja.Name = "cb_abeja";
             this.cb_abeja.Size = new System.Drawing.Size(48, 21);
             this.cb_abeja.TabIndex = 62;
+            this.cb_abeja.SelectedIndexChanged += new System.EventHandler(this.cb_abeja_SelectedIndexChanged);
             // 
             // cb_nucleo
             // 
@@ -251,6 +252,7 @@
             this.cb_nucleo.Name = "cb_nucleo";
             this.cb_nucleo.Size = new System.Drawing.Size(48, 21);
             this.cb_nucleo.TabIndex = 61;
+            this.cb_nucleo.SelectedIndexChanged += new System.EventHandler(this.cb_nucleo_SelectedIndexChanged);
             // 
             // tb_abeja
             // 
@@ -325,6 +327,7 @@
             this.cb_alza.Name = "cb_alza";
             this.cb_alza.Size = new System.Drawing.Size(48, 21);
             this.cb_alza.TabIndex = 55;
+            this.cb_alza.SelectedIndexChanged += new System.EventHandler(this.cb_alza_SelectedIndexChanged);
             // 
             // cb_camara
             // 
@@ -344,6 +347,7 @@
             this.cb_camara.Name = "cb_camara";
             this.cb_camara.Size = new System.Drawing.Size(48, 21);
             this.cb_camara.TabIndex = 54;
+            this.cb_camara.SelectedIndexChanged += new System.EventHandler(this.cb_camara_SelectedIndexChanged);
             // 
             // tb_alza
             // 
@@ -477,7 +481,7 @@
             this.pictureBox8.TabIndex = 80;
             this.pictureBox8.TabStop = false;
             // 
-            // Tienda
+            // TiendaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -517,7 +521,7 @@
             this.Controls.Add(this.lb_saldo);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Tienda";
+            this.Name = "TiendaForm";
             this.Text = "Tienda";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
