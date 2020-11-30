@@ -18,6 +18,7 @@ namespace JuegoInteractivoApicultura
         private Colmena colmena_seleccionada;
         private PictureBox celda_disponible; //Es la celda donde se pondrá la nueva colonia dividida
         private Clima clima;
+
         public Apicultor(AlmacenForm almacen, Clima clima) {
             dinero = 2500; //Dinero inicial con el que cuenta el apicultor
             colmena = new List<Colmena>();
@@ -64,13 +65,16 @@ namespace JuegoInteractivoApicultura
                     ponerColmena((PictureBox)celda);
                 }
             } else {
+                //Desactivar las variables de selección
                 desactivar_seleccion();
+                //Recorrer todas las colmenas para buscar la seleccionada
                 foreach (Colmena col in colmena)
                 {
                     if (col.getCelda() == celda) {
                         if (actividad == Actividad.PONER_ALZA)
                         {
-                            ponerAlza(col, (PictureBox)celda);  //Poner Alza                                              
+                            ponerAlza(col, (PictureBox)celda);  //Poner Alza 
+                            break;
                         }
                         else if (actividad == Actividad.VER_COLMENA)
                         {
@@ -97,7 +101,8 @@ namespace JuegoInteractivoApicultura
                             cosechar(col, (PictureBox)celda);
                             break;
                         }
-                        else if (actividad == Actividad.PONER_NUCLEO) {
+                        else if (actividad == Actividad.PONER_NUCLEO)
+                        {
                             ponerNucleo(col);
                             break;
                         }
@@ -111,9 +116,8 @@ namespace JuegoInteractivoApicultura
         }
 
         //------------Actividades --------------------------------------------------
-        public int Eliminar_colmenas_muertas() {
-            return 0;
-        }
+        //*Estos metodos deven de hacer las validaciones correspondientes
+                
         private void dividir_colmena() {
 
             //Distribuir las colonias de abejas a la mitad
@@ -149,11 +153,14 @@ namespace JuegoInteractivoApicultura
         }
            
         private void ponerNucleo(Colmena col) {
-            //Poner una reina 
-            col.setReina(new AbejaReina(col, clima));
-            //Poner cuadros de cría
-            for (int i = 0; i < 5; i++)
-                col.Cria.Add(new GrupoAbejas(300));
+            if (col.hayAbejaReina().Equals("No") || (col.Obreras))
+            {
+                //Poner una reina 
+                col.Reina = new AbejaReina(col, clima);
+                //Poner cuadros de cría
+                for (int i = 0; i < 5; i++)
+                    col.Cria.Add(new GrupoAbejas(300));
+            }
         }
 
         public void verColmena(Colmena colm, Estacion estacion) {           
@@ -180,19 +187,19 @@ namespace JuegoInteractivoApicultura
 
         public void ponerColmena(PictureBox celda) {
             //Cambiar las imagenas de la celda
-            celda.Image = System.Drawing.Image.FromFile("colmena0.png");
-            Colmena nueva_colmena = new Colmena(celda, clima);
-            colmena.Add(nueva_colmena); //Se agrega una nueva colmena
+            if (celda.Image.Equals("celda.png"))
+            { 
+                celda.Image = System.Drawing.Image.FromFile("colmena0.png");
+                Colmena nueva_colmena = new Colmena(celda, clima);
+                colmena.Add(nueva_colmena); //Se agrega una nueva colmena
+            }
         }
         
         //Una colmena solo puede tener, como máximo, 3 Alzas
         public void ponerAlza(Colmena colm, PictureBox celda) {
             bool seAgregoAlza = colm.agregarAlza();
-            if (seAgregoAlza)
-            {
-                colm.mostrarAlzas();
-            }
-            
+            if (seAgregoAlza)            
+                colm.mostrarAlzas();                        
         }
         
     }

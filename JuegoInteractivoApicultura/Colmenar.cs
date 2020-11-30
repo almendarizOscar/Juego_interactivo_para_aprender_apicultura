@@ -35,16 +35,13 @@ namespace JuegoInteractivoApicultura
         private TipoAlimento tipo_Alimento;
         private int anio;
        
-        //VARIABLES CLIMATOLÓGICAS
-        //private Estacion estacion;
-        //private float nivelNectar;
-        //private float temperatura; //en grados centígrados        
-        
         public Colmenar()
         {
             InitializeComponent();
             inicializarColmenar();
         }
+
+
         private void inicializarColmenar() {
             barra.BackColor = Color.Transparent;
             actividadActual = Actividad.SELECION;
@@ -54,8 +51,23 @@ namespace JuegoInteractivoApicultura
             clima = new Clima(Estacion.INVIERNO, 0, 5);
             apicultor = new Apicultor(almacen, clima);
             colmenas_Muertas = 0;
+            quitar_colmenas();
+            
+            timer1.Stop();
+            barra.Location = new Point(231, 58);//Regresar al inicio
+            toolStripTextBox1.Text = toolStripTextBox2.Text = toolStripTextBox3.Text = toolStripTextBox4.Text = "";
             Inicio(true);
         }
+        private void quitar_colmenas() {
+            celda0.Image = celda1.Image = celda2.Image = celda3.Image = celda4.Image =
+            celda5.Image = celda6.Image = celda7.Image = celda8.Image = celda9.Image =
+            celda10.Image = celda11.Image = celda12.Image = celda13.Image = celda14.Image =
+            celda15.Image = celda16.Image = celda17.Image = celda18.Image = celda19.Image =
+            celda20.Image = celda21.Image = celda22.Image = celda23.Image = celda24.Image =
+            celda25.Image = celda26.Image = celda27.Image = celda28.Image = celda29.Image =
+            celda30.Image = celda31.Image = System.Drawing.Image.FromFile("celda.png");
+        }
+
         private void Inicio(bool visibilidad) {
             celda0.Visible = celda1.Visible = celda2.Visible = celda3.Visible = celda4.Visible =
             celda5.Visible = celda6.Visible = celda7.Visible = celda8.Visible = celda9.Visible =
@@ -72,7 +84,7 @@ namespace JuegoInteractivoApicultura
             pictureBox1.Visible = !visibilidad; //Fondo del apiario
             //Botones del menu
             almacenMenu.Enabled = tiendaMenu.Enabled = vistaGeneralDelApiarioMenu.Enabled = !visibilidad;
-
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -124,9 +136,11 @@ namespace JuegoInteractivoApicultura
         {
                   
         }
+       
+
         //Menú "Salir"
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {   
             Inicio(true);
         }
         //Menú "Terminar"
@@ -544,8 +558,9 @@ namespace JuegoInteractivoApicultura
         }
         //Nuevo apiario
         private void nuevoApiarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Inicio(false);
+        {               
+            inicializarColmenar();
+            Inicio(false);            
         }
 
         private void pictureBox4_Click_1(object sender, EventArgs e)

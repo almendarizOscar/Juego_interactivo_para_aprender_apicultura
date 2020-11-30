@@ -30,6 +30,11 @@ namespace JuegoInteractivoApicultura
         private List<GrupoAbejas> pecoreadoras; //Son las abejas encargadas de recolectar la miel
 
         //Metodos get y set
+        public AbejaReina Reina
+        {
+            get { return reina; }
+            set { reina = value; }
+        }
         public List<GrupoAbejas> Cria
         {
             get { return cria; }            
@@ -49,9 +54,6 @@ namespace JuegoInteractivoApicultura
         
 
         public PictureBox getCelda() { return celda; }
-        public AbejaReina getReina() { return reina; }
-        public void setReina (AbejaReina r) { reina = r; }  
-        public void ponerReina (AbejaReina reina) { this.reina = reina; }
         
         public float getTemperatura() { return temperatura; }
         public Enjambrazon getNivel_de_enjambrazon() { return nivelEnjambrazon; }
@@ -103,6 +105,7 @@ namespace JuegoInteractivoApicultura
             alza = new List<Alza>();
             obrera = new List<GrupoAbejas>();
             cria = new List<GrupoAbejas>();
+            pecoreadoras = new List<GrupoAbejas>();
         }
 
         public void reducri_colonia_a_la_mitad() {
