@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbejaReina.cs" />
-    <Compile Include="Alimento.cs" />
+    <Compile Include="Almacen.cs" />
     <Compile Include="AlmacenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +56,12 @@
     </Compile>
     <Compile Include="Alza.cs" />
     <Compile Include="Apicultor.cs" />
+    <Compile Include="Ayuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ayuda.Designer.cs">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clima.cs" />
     <Compile Include="Colmena.cs" />
     <Compile Include="Colmenar.cs">
@@ -64,14 +70,13 @@
     <Compile Include="Colmenar.Designer.cs">
       <DependentUpon>Colmenar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Foco.cs" />
-    <Compile Include="GrupoAbejas.cs" />
     <Compile Include="MarcadorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MarcadorForm.Designer.cs">
       <DependentUpon>MarcadorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -79,11 +84,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TiendaForm.cs">
+    <Compile Include="Puntero.cs" />
+    <Compile Include="Tienda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TiendaForm.Designer.cs">
-      <DependentUpon>TiendaForm.cs</DependentUpon>
+    <Compile Include="Tienda.Designer.cs">
+      <DependentUpon>Tienda.cs</DependentUpon>
     </Compile>
     <Compile Include="Vida.cs" />
     <Compile Include="VistaGeneral.cs">
@@ -101,6 +107,9 @@
     <EmbeddedResource Include="AlmacenForm.resx">
       <DependentUpon>AlmacenForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ayuda.resx">
+      <DependentUpon>Ayuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Colmenar.resx">
       <DependentUpon>Colmenar.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,8 +121,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TiendaForm.resx">
-      <DependentUpon>TiendaForm.cs</DependentUpon>
+    <EmbeddedResource Include="Tienda.resx">
+      <DependentUpon>Tienda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaGeneral.resx">
       <DependentUpon>VistaGeneral.cs</DependentUpon>

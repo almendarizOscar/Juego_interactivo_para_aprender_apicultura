@@ -11,7 +11,8 @@ namespace JuegoInteractivoApicultura
     {
         private int dias;
         private int anios;
-        public int Dias {
+        public int Dias
+        {
             get { return dias; }
             set { dias = value; }
         }
@@ -21,17 +22,11 @@ namespace JuegoInteractivoApicultura
             set { anios = value; }
         }
 
-        public Vida() {
+        public Vida()
+        {
             this.dias = 0;
             this.anios = 0;
         }
-        public void aumentar_día (){
-            dias += 1;
-            if (dias >=365)
-            {
-                dias = 0;
-                anios += 1; 
-            }
-        }
+     
     }
 }

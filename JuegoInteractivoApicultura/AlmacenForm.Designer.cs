@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlmacenForm));
             this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tb_abeja = new System.Windows.Forms.TextBox();
             this.tb_nucleo = new System.Windows.Forms.TextBox();
@@ -50,6 +49,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -61,24 +61,13 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(648, 370);
+            this.button3.Location = new System.Drawing.Point(612, 318);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(90, 23);
             this.button3.TabIndex = 68;
             this.button3.Text = "Cerrar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(22, 370);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 16);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "*El material vivo no dura mas de una estacion del año";
             // 
             // pictureBox1
             // 
@@ -86,25 +75,24 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(749, 405);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(726, 353);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 64;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tb_abeja
             // 
-            this.tb_abeja.Enabled = false;
-            this.tb_abeja.Location = new System.Drawing.Point(234, 297);
+            this.tb_abeja.Location = new System.Drawing.Point(234, 294);
             this.tb_abeja.Name = "tb_abeja";
+            this.tb_abeja.ReadOnly = true;
             this.tb_abeja.Size = new System.Drawing.Size(100, 20);
             this.tb_abeja.TabIndex = 60;
             // 
             // tb_nucleo
             // 
-            this.tb_nucleo.Enabled = false;
-            this.tb_nucleo.Location = new System.Drawing.Point(234, 259);
+            this.tb_nucleo.Location = new System.Drawing.Point(234, 260);
             this.tb_nucleo.Name = "tb_nucleo";
+            this.tb_nucleo.ReadOnly = true;
             this.tb_nucleo.Size = new System.Drawing.Size(100, 20);
             this.tb_nucleo.TabIndex = 59;
             // 
@@ -113,7 +101,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(74, 299);
+            this.label3.Location = new System.Drawing.Point(74, 293);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 18);
             this.label3.TabIndex = 58;
@@ -143,17 +131,17 @@
             // 
             // tb_alza
             // 
-            this.tb_alza.Enabled = false;
             this.tb_alza.Location = new System.Drawing.Point(234, 180);
             this.tb_alza.Name = "tb_alza";
+            this.tb_alza.ReadOnly = true;
             this.tb_alza.Size = new System.Drawing.Size(100, 20);
             this.tb_alza.TabIndex = 53;
             // 
             // tb_camara
             // 
-            this.tb_camara.Enabled = false;
-            this.tb_camara.Location = new System.Drawing.Point(234, 145);
+            this.tb_camara.Location = new System.Drawing.Point(234, 148);
             this.tb_camara.Name = "tb_camara";
+            this.tb_camara.ReadOnly = true;
             this.tb_camara.Size = new System.Drawing.Size(100, 20);
             this.tb_camara.TabIndex = 52;
             // 
@@ -181,9 +169,9 @@
             // 
             // tb_capital
             // 
-            this.tb_capital.Enabled = false;
-            this.tb_capital.Location = new System.Drawing.Point(125, 60);
+            this.tb_capital.Location = new System.Drawing.Point(234, 61);
             this.tb_capital.Name = "tb_capital";
+            this.tb_capital.ReadOnly = true;
             this.tb_capital.Size = new System.Drawing.Size(100, 20);
             this.tb_capital.TabIndex = 49;
             this.tb_capital.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -195,9 +183,9 @@
             this.lb_capital.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_capital.Location = new System.Drawing.Point(66, 60);
             this.lb_capital.Name = "lb_capital";
-            this.lb_capital.Size = new System.Drawing.Size(53, 18);
+            this.lb_capital.Size = new System.Drawing.Size(74, 18);
             this.lb_capital.TabIndex = 48;
-            this.lb_capital.Text = "Capital";
+            this.lb_capital.Text = "Monedas:";
             // 
             // label11
             // 
@@ -276,11 +264,24 @@
             this.label2.TabIndex = 86;
             this.label2.Text = " Material vivo";
             // 
-            // Almacen
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label4.Location = new System.Drawing.Point(33, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(271, 17);
+            this.label4.TabIndex = 87;
+            this.label4.Text = "Precio de venta de la miel: $13.63 por kg ";
+            // 
+            // AlmacenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 405);
+            this.ClientSize = new System.Drawing.Size(726, 353);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
@@ -289,7 +290,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_abeja);
             this.Controls.Add(this.tb_nucleo);
             this.Controls.Add(this.label3);
@@ -303,7 +303,7 @@
             this.Controls.Add(this.lb_capital);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Almacen";
+            this.Name = "AlmacenForm";
             this.Text = "Almacen";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -319,7 +319,6 @@
         #endregion
 
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox tb_abeja;
         private System.Windows.Forms.TextBox tb_nucleo;
@@ -339,5 +338,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }

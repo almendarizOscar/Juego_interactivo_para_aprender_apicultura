@@ -48,7 +48,7 @@
             // 
             this.lb_puntaje.AutoSize = true;
             this.lb_puntaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_puntaje.Location = new System.Drawing.Point(41, 197);
+            this.lb_puntaje.Location = new System.Drawing.Point(14, 198);
             this.lb_puntaje.Name = "lb_puntaje";
             this.lb_puntaje.Size = new System.Drawing.Size(100, 18);
             this.lb_puntaje.TabIndex = 20;
@@ -64,13 +64,12 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lb_perdidas
             // 
             this.lb_perdidas.AutoSize = true;
             this.lb_perdidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_perdidas.Location = new System.Drawing.Point(21, 162);
+            this.lb_perdidas.Location = new System.Drawing.Point(12, 162);
             this.lb_perdidas.Name = "lb_perdidas";
             this.lb_perdidas.Size = new System.Drawing.Size(127, 18);
             this.lb_perdidas.TabIndex = 14;
@@ -80,17 +79,17 @@
             // 
             this.lb_dinero.AutoSize = true;
             this.lb_dinero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dinero.Location = new System.Drawing.Point(22, 123);
+            this.lb_dinero.Location = new System.Drawing.Point(12, 123);
             this.lb_dinero.Name = "lb_dinero";
-            this.lb_dinero.Size = new System.Drawing.Size(129, 18);
+            this.lb_dinero.Size = new System.Drawing.Size(135, 18);
             this.lb_dinero.TabIndex = 13;
-            this.lb_dinero.Text = "Dinero acumulado";
+            this.lb_dinero.Text = "Kg  de Miel vendida";
             // 
             // lb_años
             // 
             this.lb_años.AutoSize = true;
             this.lb_años.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_años.Location = new System.Drawing.Point(22, 82);
+            this.lb_años.Location = new System.Drawing.Point(12, 82);
             this.lb_años.Name = "lb_años";
             this.lb_años.Size = new System.Drawing.Size(123, 18);
             this.lb_años.TabIndex = 12;
@@ -100,7 +99,7 @@
             // 
             this.lb_colmenas.AutoSize = true;
             this.lb_colmenas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_colmenas.Location = new System.Drawing.Point(22, 46);
+            this.lb_colmenas.Location = new System.Drawing.Point(12, 46);
             this.lb_colmenas.Name = "lb_colmenas";
             this.lb_colmenas.Size = new System.Drawing.Size(130, 18);
             this.lb_colmenas.TabIndex = 11;
@@ -119,40 +118,45 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 47);
+            this.textBox1.Location = new System.Drawing.Point(173, 47);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(105, 20);
             this.textBox1.TabIndex = 82;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(157, 83);
+            this.textBox2.Location = new System.Drawing.Point(173, 83);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(105, 20);
             this.textBox2.TabIndex = 83;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(157, 124);
+            this.textBox3.Location = new System.Drawing.Point(173, 124);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(105, 20);
             this.textBox3.TabIndex = 84;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(157, 163);
+            this.textBox4.Location = new System.Drawing.Point(173, 163);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(105, 20);
             this.textBox4.TabIndex = 85;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(157, 198);
+            this.textBox5.Location = new System.Drawing.Point(173, 198);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(105, 20);
             this.textBox5.TabIndex = 86;
             // 
-            // Marcador
+            // MarcadorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -170,9 +174,8 @@
             this.Controls.Add(this.lb_años);
             this.Controls.Add(this.lb_colmenas);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Marcador";
+            this.Name = "MarcadorForm";
             this.Text = "Marcador";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Marcador_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

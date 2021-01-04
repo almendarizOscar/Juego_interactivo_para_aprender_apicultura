@@ -8,25 +8,29 @@ using System.Windows.Forms;
 namespace JuegoInteractivoApicultura
 {
     class Apicultor
-    {
-       
-        private int dinero;
+    {        
+        private int monedas;
         private List<Colmena> colmena;
-        private AlmacenForm almacen;
+        private Almacen almacen;
+       
 
-        public int Dinero
+        public Almacen El_almacen
+        {
+            get { return almacen; }
+            set { almacen = value; }
+        }
+        public int Monedas
         {
             set
             {
-                dinero = value;
+                monedas = value;
             }
             get
             {
-                return dinero;
+                return monedas;
             }
         }
-
-        public List<Colmena> col
+        public List<Colmena> Mis_Colmenas
         {
             set
             {
@@ -40,74 +44,88 @@ namespace JuegoInteractivoApicultura
         public List<Colmena> GetColmenas() { return colmena; }
         //Variables para la división de colmenas
         private Colmena colmena_seleccionada;
-        private PictureBox celda_disponible; //Es la celda donde se pondrá la nueva colonia dividida
-        private Clima clima;
+        private PictureBox celda_disponible; //Es la celda donde se pondrá la nueva colonia dividida       
 
-        public Apicultor(AlmacenForm almacen, Clima clima) {
-            dinero = 2500; //Dinero inicial con el que cuenta el apicultor
+        public Apicultor(Almacen almacen)
+        {           
+            monedas = 2500; //Dinero inicial con el que cuenta el apicultor
             colmena = new List<Colmena>();
             this.almacen = almacen;
-            this.clima = clima;
+            
         }
-        private void desactivar_seleccion() {
+        private void desactivar_seleccion()
+        {
             colmena_seleccionada = null;
             celda_disponible = null;
         }
-        public void realizaActividad(Actividad actividad, Object celda, Estacion estacion) {
+        public void realizaActividad(Actividad actividad, Object celda)
+        {
+
             
-             if (actividad == Actividad.DIVIDIR)
+            if (actividad == Actividad.PONER_CAMARA)
             {
-                //Localizar la colmena a dividir
+                desactivar_seleccion();                
+                ponerColmena((PictureBox)celda);                
+            }else if (actividad == Actividad.SELECION)
+            {
+                
                 foreach (Colmena col in colmena)
                 {
-                    if (col.getCelda() == celda)
+                    if (col.getCelda() == (PictureBox)celda)
+                    {
                         colmena_seleccionada = col; //Colmena a divir
+                    }
                 }
-                //Si la celda está desocupada, se toma como la ubicacion de la nueva colmena
-                if (((PictureBox)celda).Image.Equals("celda.png"))
-                    celda_disponible = ((PictureBox)celda);
-
-
-                //Si hay una colmena que dividir y un lugar disponible
-                if (celda != null && colmena_seleccionada != null)
+                if (!((PictureBox)celda).Image.Equals("celda.png"))
                 {
-                    dividir_colmena();
+                    celda_disponible = ((PictureBox)celda);
+                }
+
+                if (celda_disponible != null && colmena_seleccionada != null) {  
+                    celda_disponible = ((PictureBox)celda);
+                    //Mover la colmena
+                    //La anterior se elimina
+                    colmena_seleccionada.getCelda().Image = System.Drawing.Image.FromFile("celda.png");
+                    //y se le asigna la actual celda                   
+                    if (colmena_seleccionada.getAlzas().Count == 0)
+                    {
+                        celda_disponible.Image = System.Drawing.Image.FromFile("colmena0.png");
+                        colmena_seleccionada.setCelda(celda_disponible);
+                    }
                 }
             }
-            else if (actividad == Actividad.PONER_CAMARA)
+            else
             {
-                desactivar_seleccion();
-                bool yaEstaOcupado = false;
-                //Verificar que la celda no está ocupada
-                foreach (Colmena col in colmena)
-                {
-                    if (col.getCelda() == celda)
-                        yaEstaOcupado = true;
-                }
-                if (!yaEstaOcupado)
-                {
-                    ponerColmena((PictureBox)celda);
-                }
-            } else {
                 //Desactivar las variables de selección
                 desactivar_seleccion();
                 //Recorrer todas las colmenas para buscar la seleccionada
                 foreach (Colmena col in colmena)
                 {
-                    if (col.getCelda() == celda) {
+                    if (col.getCelda() == celda)
+                    {
                         if (actividad == Actividad.PONER_ALZA)
                         {
-                            ponerAlza(col, (PictureBox)celda);  //Poner Alza 
+                            if (almacen.Alzas > 0)
+                                ponerAlza(col, (PictureBox)celda);  //Poner Alza 
+                            else
+                                sonido_de_pato();
                             break;
                         }
                         else if (actividad == Actividad.VER_COLMENA)
                         {
-                            verColmena(col, estacion);
+                            Program.play.Enabled = true;
+                            Program.pause.Enabled = false;
+                            verColmena(col);
                             break;
                         }
                         else if (actividad == Actividad.PONER_REDUCTOR)
                         {
-                            col.ponerReductor();
+                            ponerReductor(col);
+                            break;
+                        }
+                        else if (actividad == Actividad.QUITAR_REDUCTOR)
+                        {
+                            quitarReductor(col);
                             break;
                         }
                         else if (actividad == Actividad.ELIMINAR)
@@ -134,97 +152,192 @@ namespace JuegoInteractivoApicultura
                     }
                 }
 
-
-
             }
         }
 
         //------------Actividades --------------------------------------------------
         //*Estos metodos deven de hacer las validaciones correspondientes
-                
-        private void dividir_colmena() {
-
-            //Distribuir las colonias de abejas a la mitad
-            Colmena nueva_colmena = new Colmena(celda_disponible,
-                                                colmena_seleccionada.getAbejas_Totales()/2,
-                                                colmena_seleccionada.getClima());
-            //colmena_seleccionada.reducri_colonia_a_la_mitad();
-
-            //Distribuir la miel entre las dos colmenas
-            switch (colmena_seleccionada.getAlzas().Count) {
-                /*case 1:
-                    nueva_colmena.agregarAlza((colmena_seleccionada.getAlzas())[0].getMiel()/2);
-                    (colmena_seleccionada.getAlzas())[0].miel_a_la_mitad();
-                    break;
-                case 2:
-                    nueva_colmena.agregarAlza(colmena_seleccionada.total_de_miel()/2); //%50 de miel
-                    (colmena_seleccionada.getAlzas())[0].setMiel(colmena_seleccionada.total_de_miel() / 2);
-                    colmena_seleccionada.quitar_Alza(); //Se quita una alza                   
-                    break;
-                case 3:
-                    nueva_colmena.agregarAlza(100); //Una alza con %50 de miel
-                    nueva_colmena.agregarAlza((colmena_seleccionada.total_de_miel()-100) / 2);
-
-                    (colmena_seleccionada.getAlzas())[1].setMiel(nueva_colmena.getAlzas()[1].getMiel());
-                    colmena_seleccionada.quitar_Alza(); //Se quita una alza   
-                    break;*/
-            }
-            //Agregar a la  lista la nueva colmena
-            colmena.Add(nueva_colmena);
-            //Actualizar la imagen de las colmenas
-            colmena_seleccionada.mostrarAlzas();
-            nueva_colmena.mostrarAlzas();
+        private void ponerReductor(Colmena col)
+        {
+            col.Reductor_de_piquera = true;
         }
-           
-        private void ponerNucleo(Colmena col) {
-            if (col.hayAbejaReina().Equals("No") || (col.Obreras))
-            {
+        private void quitarReductor(Colmena col)
+        {
+            col.Reductor_de_piquera = false;
+        }
+
+        /*  Un núcleo 
+         *  - abejas
+         *  - una abeja reina 
+         *  - 12 kg de reservas de miel
+         */
+        private void ponerNucleo(Colmena col)
+        {
+            if (almacen.Nucleos > 0) {
                 //Poner una reina 
-                col.Reina = new AbejaReina(col, clima);
+                col.Reina = new AbejaReina(col);
                 //Poner cuadros de cría
-                for (int i = 0; i < 5; i++)
-                    col.Cria.Add(new GrupoAbejas(300));
+                col.Abejas_totales = 10000;
+                col.Reserva_de_miel = 12;
+                almacen.Nucleos -= 1;
             }
         }
 
-        public void verColmena(Colmena colm, Estacion estacion) {           
-            Form vistaInterna = new VistaInterna(colm, estacion);
-            vistaInterna.Show();
-        }
+        public void verColmena(Colmena colm)
+        {
+            //Solo se puede ver la colmena si hay abejas
+            if (colm.Abejas_totales != 0) {
+                Form vistaInterna = new VistaInterna(colm, this);
+                vistaInterna.Show();
+            }
+            else
+                sonido_de_pato();
 
+        }
+        //Solo se cosehcan las alzas que estén llenas
+        //Al cosechar la miel las alzas se quitan y se guardan en el almacen
         public void cosechar(Colmena col, PictureBox celda)
         {
-
+            if (col.getAlzas().Count != 0)
+            {
+                int alzas_llenas = 0;
+                for (int i=0; i<col.getAlzas().Count; i++)
+                {
+                    if ((col.getAlzas())[i] >= 22) { 
+                        alzas_llenas += 1;
+                    (col.getAlzas())[i] = 0;
+                    }
+                }              
+                //Calculamos la ganancia de monedas            
+                monedas += alzas_llenas * 300;
+                col.Gota_De_miel.Visible = false;
+            }
         }
+
+
         public void ponerReina(Colmena col)
         {
-            col.ponerReina(new AbejaReina(col, col.getClima()));
-            col.matarHuevosDeReina();
+            if (almacen.Reinas > 0)
+            {
+                col.Reina = new AbejaReina(col);
+                almacen.Reinas -= 1;
+            }
         }
-        public void eliminaColmena(Colmena col, PictureBox celda) {
+
+        public void eliminaColmena(Colmena col, PictureBox celda)
+        {
+            //Guardamos el material en el almacen
+            //Primero las alzas 
+            almacen.Alzas += col.getAlzas().Count;
+            //Al ultimo la camara de cría
+            almacen.Camaras_de_cria += 1;
+
+            //Eliminamos el id de la colmenas en la lista de ids ocupados
+            Program.id_ya_asignado.Remove(col.ID);
             //Cambiar la imagen 
-            celda.Image = System.Drawing.Image.FromFile("celda.png");           
+            celda.Image = System.Drawing.Image.FromFile("celda.png");
             //*Si se elimina la colmena con abejas dentro, cuanta como colmena muerta.
             //*El cajon y las alzas de la colmena regresan al almacen
             colmena.Remove(col); //Elimnar la colmena de la lista
+            var sonido_pato = new System.Media.SoundPlayer("eliminada.wav");
+            sonido_pato.Play();
+
+           
         }
 
-        public void ponerColmena(PictureBox celda) {
-            //Cambiar las imagenas de la celda
-            if (celda.Image.Equals("celda.png"))
-            { 
-                celda.Image = System.Drawing.Image.FromFile("colmena0.png");
-                Colmena nueva_colmena = new Colmena(celda, clima);
-                colmena.Add(nueva_colmena); //Se agrega una nueva colmena
+        public void ponerColmena(PictureBox celda)
+        {
+            //El primer paso es verificar que haya camaras de crias disponibles en el almacens
+            if (almacen.Camaras_de_cria > 0) {
+
+                bool yaEstaOcupado = false;
+                //Verificar que la celda no está ocupada
+                foreach (Colmena col in colmena)
+                {
+                    if (col.getCelda() == celda)
+                        yaEstaOcupado = true;
+                }
+                if (!yaEstaOcupado) {
+
+                    //Cambiar las imagenas de la celda           
+                    celda.Image = System.Drawing.Image.FromFile("colmena0.png");
+                    Colmena nueva_colmena = new Colmena(celda);
+                    nueva_colmena.ID = asignar_id();
+                    colmena.Add(nueva_colmena); //Se agrega una nueva colmena  
+
+                    almacen.Camaras_de_cria -= 1;
+                } else {
+                    sonido_de_pato();
+                }
+            }  
+        }
+
+        //Una colmena solo puede tener, como máximo, 3 Alzas
+        public void ponerAlza(Colmena colm, PictureBox celda)
+        {
+            if (almacen.Alzas > 0) {
+                bool seAgregoAlza = colm.agregarAlza();
+                if (seAgregoAlza)
+                {
+                    colm.mostrarAlzas();
+                    almacen.Alzas -= 1;
+                }
+                else
+                    sonido_de_pato();
             }
         }
-        
-        //Una colmena solo puede tener, como máximo, 3 Alzas
-        public void ponerAlza(Colmena colm, PictureBox celda) {
-            bool seAgregoAlza = colm.agregarAlza();
-            if (seAgregoAlza)            
-                colm.mostrarAlzas();                        
+
+        private void sonido_de_pato()
+        {
+            var sonido_pato = new System.Media.SoundPlayer("pato.wav");
+            sonido_pato.Play();
         }
-        
-    }
+
+        //Devuelve un ID disponible para la colmena
+        public int asignar_id()
+        {
+            //Los ID estan disponbles desde 1 hasta 32
+            for (int i = 1; i <= 32; i++) {
+                int id_asignado = i; //Es el id que se va a devolver
+                bool id_ocupado = false;
+                foreach (int id in Program.id_ya_asignado)
+                {
+                    if (id_asignado == id)
+                    {
+                        id_ocupado = true;
+                        break;
+                    }
+                }
+                if (!id_ocupado)
+                {
+                    Program.id_ya_asignado.Add(id_asignado);
+                    return id_asignado;
+                }
+            }
+            return -1; //Ya no hay disponibles 
+        }
+
+        public bool hay_al_menos_una_colmenas_con_el_reductor()
+        {
+            if (colmena.Count != 0)
+            {
+                foreach (Colmena col in colmena)
+                {
+                    if (col.Reductor_de_piquera)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public int acompleto_estas_colmenas()
+        {
+            int numero_de_colmenas = 0;            
+            if (monedas >= 1800)
+            {
+                numero_de_colmenas = monedas / 2500;
+            }
+            return numero_de_colmenas;
+        }
+    }   
 }

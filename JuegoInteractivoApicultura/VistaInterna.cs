@@ -12,16 +12,24 @@ namespace JuegoInteractivoApicultura
 {
     public partial class VistaInterna : Form
     {
-        private Colmena colmena;
-        private Estacion estacion;
-        public VistaInterna(Object colmena, Object estacion)
+        private Colmena colmena; //Colmena que estamos revisando       
+        private Apicultor apicultor;
+
+        public VistaInterna(Object colmena, Object apicultor)
         {
-            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            InitializeComponent();            
+            Program.reloj.Stop(); //Se detiene el juego
             this.colmena = (Colmena)colmena;
-            this.estacion = (Estacion)estacion;
+            label10.Text = this.colmena.ID.ToString();
             mostrarInformación();
+            this.apicultor = (Apicultor)apicultor;
+            pictureBox3.Visible = false;
         }
-        public void visualizacion_de_la_colmena() {
+
+        //Muestra la imagen correspondiente a la colmena
+        public void visualizacion_de_la_colmena()
+        {
             if (colmena.getAlzas().Count == 0)
                 pictureBox1.Image = System.Drawing.Image.FromFile("Colmena_B0.png");
             else if (colmena.getAlzas().Count == 1)
@@ -30,117 +38,144 @@ namespace JuegoInteractivoApicultura
                 pictureBox1.Image = System.Drawing.Image.FromFile("Colmena_B2.png");
             else
                 pictureBox1.Image = System.Drawing.Image.FromFile("Colmena_B3.png");
+            poner_reductor();
         }
 
-        private void InformacionDePoblacion() {
+        public void poner_reductor()
+        {
+            //Visualización del reductor de piquera            
+            reductor_de_piquera.Visible = (colmena.Reductor_de_piquera == true) ? true : false;
+            textBox9.Text = (colmena.Reductor_de_piquera == true) ? "Puesto" : "No Puesto";
+            button3.Text = (colmena.Reductor_de_piquera == true) ? "Quitar" : "Colocar";
+        }
+
+
+        //Obtener informacion de la población
+        private void Informacion_de_poblacion()
+        {
             float peso;
-            //Abejas pecoreadoras
-            if (colmena.getAbejas_Totales()<= 10000) { 
-                textBox2.Text = (colmena.getAbejas_Totales() * 0.2).ToString(); //Abejas pecoreadoras
-                textBox11.Text = "%20"; //Porcentaje de pecoreadoras                               
-            }
-            else if (colmena.getAbejas_Totales() > 10000 && colmena.getAbejas_Totales()<=20000)
-            {
-                textBox2.Text = (colmena.getAbejas_Totales() * 0.25).ToString(); //Abejas pecoreadoras
-                textBox11.Text = "%25"; //Porcentaje de pecoreadoras               
-            }
-            else if (colmena.getAbejas_Totales() > 20000 && colmena.getAbejas_Totales() <= 30000)
-            {
-                textBox2.Text = (colmena.getAbejas_Totales() * 0.30).ToString(); //Abejas pecoreadoras
-                textBox11.Text = "%30"; //Porcentaje de pecoreadoras               
-            }
-            else if (colmena.getAbejas_Totales() > 30000 && colmena.getAbejas_Totales() <= 40000)
-            {
-                textBox2.Text = (colmena.getAbejas_Totales() * 0.50).ToString(); //Abejas pecoreadoras
-                textBox11.Text = "%50"; //Porcentaje de pecoreadoras               
-            }
-            else if (colmena.getAbejas_Totales() > 40000 && colmena.getAbejas_Totales() <= 50000)
-            {
-                textBox2.Text = (colmena.getAbejas_Totales() * 0.60).ToString(); //Abejas pecoreadoras
-                textBox11.Text = "%60"; //Porcentaje de pecoreadoras               
-            }
-            else if (colmena.getAbejas_Totales() > 50000 && colmena.getAbejas_Totales() <= 60000)
-            {
-                textBox2.Text = (colmena.getAbejas_Totales() * 0.65).ToString(); //Abejas pecoreadoras
-                textBox11.Text = "%65"; //Porcentaje de pecoreadoras               
-            }
-
-
-            peso = colmena.getAbejas_Totales() / 10000; //Peso de la población
-            textBox11.Text = peso + "Kg";
-            textBox12.Text = (peso * peso) + "Kg"; //Rendimiento de miel
+            textBox2.Text = colmena.Pecoreadoras.ToString();
+            peso = colmena.Abejas_totales / 10000; //Peso de la población            
+            textBox13.Text = (peso * peso) + "Kg"; //Rendimiento de miel
 
         }
-        public void mostrarInformación() {
-            //textBox1.Text = colmena.getEstado().ToString(); //Estado de la colonia
+        public void mostrarInformación()
+        {
             visualizacion_de_la_colmena();//Visualización de la colmena           
             panel1.Visible = true;
-            
-            textBox3.Text = estacion.ToString(); //Estacion de año
-            textBox4.Text = colmena.getAbejas_Totales().ToString(); //Población total            
-            textBox5.Text = colmena.getTemperatura().ToString(); //Temperatura interna de la colmena
-            InformacionDePoblacion();
-            InformacionAbejaReina();
-            InformacionEnjambrazon();
-            InformacionAlzasDeMiel();            
-        }
-        public void InformacionAlzasDeMiel() {
+            textBox3.Text = Program.clima.Estacion_del_año.ToString(); //Estacion de año
+            textBox5.Text = colmena.Temperatura.ToString(); //Temperatura interna de la colmena
+            textBox4.Text = colmena.Abejas_totales.ToString(); //Población total de abejas        
+           
+            Informacion_de_poblacion();
+            Informacion_abeja_reina();
+            Informacion_enjambrazon();
+            textBox11.Text = colmena.Mi_Alimento.ToString();
+            textBox1.Text = colmena.Reserva_de_miel + " Kg"; //Reserva de miel
+            Informacion_de_alzas_de_miel();
+
+
 
         }
-        public void InformacionEnjambrazon() {
-            textBox10.Text = colmena.getNivel_de_enjambrazon().ToString();
-            if (colmena.getNivel_de_enjambrazon() == Enjambrazon.NULO)
+
+        public void Informacion_de_alzas_de_miel()
+        {
+            if (colmena.getAlzas().Count != 0)
+            {
+                for (int i= colmena.getAlzas().Count-1; i>-1;i--)
+                    this.dataGridView1.Rows.Add("Alza " + (i+1), (colmena.getAlzas())[i] + " Kg");
+            }
+
+        }
+
+        public void Informacion_enjambrazon()
+        {
+
+            if (colmena.Estres <= 10)
+            {
                 textBox10.BackColor = Color.WhiteSmoke;
-            else if (colmena.getNivel_de_enjambrazon() == Enjambrazon.BAJO)
+                textBox10.Text = "NULO";
+                pictureBox3.Visible = false;
+            }
+            else if (colmena.Estres > 10 && colmena.Estres <= 20)
+            {
                 textBox10.BackColor = Color.Yellow;
-            else if (colmena.getNivel_de_enjambrazon() == Enjambrazon.MEDIO)
+                textBox10.Text = "BAJO";
+                pictureBox3.Visible = true;                
+            }
+            else if (colmena.Estres > 20 && colmena.Estres <= 30)
+            {
                 textBox10.BackColor = Color.Orange;
-            else
+                textBox10.Text = "MEDIO";
+                pictureBox3.Visible = true;
+                pictureBox3.Image = System.Drawing.Image.FromFile("enjambrazon_2.png");
+            }
+            else //ALTO
+            {
                 textBox10.BackColor = Color.Red;
+                textBox10.Text = "ALTO";
+                pictureBox3.Visible = true;
+                pictureBox3.Image = System.Drawing.Image.FromFile("enjambrazon_3.png");
+
+            }
         }
 
 
-        public void InformacionAbejaReina() {
-            textBox6.Text = colmena.hayAbejaReina();
+        public void Informacion_abeja_reina()
+        {
+            textBox6.Text = colmena.hayAbejaReina(); //Reina puesta
             if (colmena.hayAbejaReina().Equals("No"))
             {
-                textBox7.BackColor = Color.WhiteSmoke;
+                textBox7.BackColor = Color.Red;
                 textBox7.Text = "";
                 textBox8.Text = "";
             }
-            else {
-                if (colmena.getReina().getVida().Anios == 5)
+            else
+            {
+                if (colmena.Reina.Mi_vida.Anios <= 2)
+                {
                     textBox7.BackColor = Color.Blue;
-                else if (colmena.getReina().getVida().Anios == 4)
+                    textBox7.ForeColor = Color.White;
+                    textBox7.Text = "ALTO";
+                }
+                else if (colmena.Reina.Mi_vida.Anios >= 2 && colmena.Reina.Mi_vida.Anios < 3)
+                {
                     textBox7.BackColor = Color.Yellow;
-                else if (colmena.getReina().getVida().Anios == 3)
-                    textBox7.BackColor = Color.Orange;
+                    textBox7.ForeColor = Color.Black;
+                    textBox7.Text = "MEDIO";
+                }                
                 else
+                {
                     textBox7.BackColor = Color.Red;
-                
-                textBox8.Text = colmena.getReina().getVida().Anios.ToString();
+                    textBox7.ForeColor = Color.White;
+                    textBox7.Text = "BAJO";
+                }
+                textBox8.Text = colmena.Reina.Mi_vida.Anios.ToString(); //Años de la reina dentro de la colmena
             }
         }
-        
-        //Botón Salir
+
         private void button1_Click(object sender, EventArgs e)
-        {           
+        {
             this.Close();
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        //Cosechar reserva de miel
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            int monedas_ganadas = Convert.ToInt32(colmena.Reserva_de_miel*300)/22;
+            Program.miel_recolectada_total += colmena.Reserva_de_miel;
+            textBox1.Text = "0 Kg";
+            colmena.Reserva_de_miel = 0;
+            apicultor.Monedas += monedas_ganadas;
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        //Quira reductor
+        private void button3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
+            colmena.Reductor_de_piquera = !colmena.Reductor_de_piquera;           
+            poner_reductor();
+            if (!colmena.Reductor_de_piquera)
+                colmena.Estres = 0;
+            Informacion_enjambrazon();
         }
     }
 }

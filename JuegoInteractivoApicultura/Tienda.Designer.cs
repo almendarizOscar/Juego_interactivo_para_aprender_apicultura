@@ -1,6 +1,6 @@
 ﻿namespace JuegoInteractivoApicultura
 {
-    partial class TiendaForm
+    partial class Tienda
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiendaForm));
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tienda));
             this.tb_saldo = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -63,6 +62,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -73,23 +73,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(38, 347);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 16);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "*El material vivo no dura mas de una estacion del año";
-            // 
             // tb_saldo
             // 
-            this.tb_saldo.Enabled = false;
-            this.tb_saldo.Location = new System.Drawing.Point(117, 55);
+            this.tb_saldo.Location = new System.Drawing.Point(243, 55);
             this.tb_saldo.Name = "tb_saldo";
+            this.tb_saldo.ReadOnly = true;
             this.tb_saldo.Size = new System.Drawing.Size(100, 20);
             this.tb_saldo.TabIndex = 76;
             this.tb_saldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -131,7 +119,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(28, 161);
+            this.pictureBox4.Location = new System.Drawing.Point(33, 161);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(54, 19);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -142,7 +130,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(27, 45);
+            this.pictureBox2.Location = new System.Drawing.Point(49, 46);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(26, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -159,7 +147,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 69;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // bt_comprar
             // 
@@ -173,21 +160,22 @@
             this.bt_comprar.TabIndex = 68;
             this.bt_comprar.Text = "Comprar";
             this.bt_comprar.UseVisualStyleBackColor = false;
+            this.bt_comprar.Click += new System.EventHandler(this.bt_comprar_Click_1);
             // 
             // tb_saldores
             // 
-            this.tb_saldores.Enabled = false;
             this.tb_saldores.Location = new System.Drawing.Point(243, 411);
             this.tb_saldores.Name = "tb_saldores";
+            this.tb_saldores.ReadOnly = true;
             this.tb_saldores.Size = new System.Drawing.Size(100, 20);
             this.tb_saldores.TabIndex = 66;
             this.tb_saldores.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tb_pago
             // 
-            this.tb_pago.Enabled = false;
             this.tb_pago.Location = new System.Drawing.Point(243, 378);
             this.tb_pago.Name = "tb_pago";
+            this.tb_pago.ReadOnly = true;
             this.tb_pago.Size = new System.Drawing.Size(100, 20);
             this.tb_pago.TabIndex = 65;
             this.tb_pago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -256,10 +244,10 @@
             // 
             // tb_abeja
             // 
-            this.tb_abeja.Enabled = false;
             this.tb_abeja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_abeja.Location = new System.Drawing.Point(243, 304);
             this.tb_abeja.Name = "tb_abeja";
+            this.tb_abeja.ReadOnly = true;
             this.tb_abeja.Size = new System.Drawing.Size(100, 22);
             this.tb_abeja.TabIndex = 60;
             this.tb_abeja.Text = "$1000";
@@ -267,10 +255,10 @@
             // 
             // tb_nucleo
             // 
-            this.tb_nucleo.Enabled = false;
             this.tb_nucleo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_nucleo.Location = new System.Drawing.Point(243, 255);
             this.tb_nucleo.Name = "tb_nucleo";
+            this.tb_nucleo.ReadOnly = true;
             this.tb_nucleo.Size = new System.Drawing.Size(100, 22);
             this.tb_nucleo.TabIndex = 59;
             this.tb_nucleo.Text = "$2000";
@@ -351,10 +339,10 @@
             // 
             // tb_alza
             // 
-            this.tb_alza.Enabled = false;
             this.tb_alza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_alza.Location = new System.Drawing.Point(243, 158);
             this.tb_alza.Name = "tb_alza";
+            this.tb_alza.ReadOnly = true;
             this.tb_alza.Size = new System.Drawing.Size(100, 22);
             this.tb_alza.TabIndex = 53;
             this.tb_alza.Text = "$300";
@@ -362,10 +350,10 @@
             // 
             // tb_camara
             // 
-            this.tb_camara.Enabled = false;
             this.tb_camara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_camara.Location = new System.Drawing.Point(243, 123);
             this.tb_camara.Name = "tb_camara";
+            this.tb_camara.ReadOnly = true;
             this.tb_camara.Size = new System.Drawing.Size(100, 22);
             this.tb_camara.TabIndex = 52;
             this.tb_camara.Text = "$800";
@@ -431,7 +419,7 @@
             this.lb_saldo.AutoSize = true;
             this.lb_saldo.BackColor = System.Drawing.Color.White;
             this.lb_saldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_saldo.Location = new System.Drawing.Point(59, 54);
+            this.lb_saldo.Location = new System.Drawing.Point(86, 54);
             this.lb_saldo.Name = "lb_saldo";
             this.lb_saldo.Size = new System.Drawing.Size(46, 18);
             this.lb_saldo.TabIndex = 46;
@@ -463,7 +451,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(28, 116);
+            this.pictureBox3.Location = new System.Drawing.Point(37, 116);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(48, 39);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -481,15 +469,27 @@
             this.pictureBox8.TabIndex = 80;
             this.pictureBox8.TabStop = false;
             // 
-            // TiendaForm
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label5.Location = new System.Drawing.Point(42, 344);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(394, 17);
+            this.label5.TabIndex = 89;
+            this.label5.Text = "No se puede comprar material vivo en temporada de invierno";
+            // 
+            // Tienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 482);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_saldo);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -521,7 +521,7 @@
             this.Controls.Add(this.lb_saldo);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "TiendaForm";
+            this.Name = "Tienda";
             this.Text = "Tienda";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -537,8 +537,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox tb_saldo;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
@@ -572,5 +570,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label5;
     }
 }

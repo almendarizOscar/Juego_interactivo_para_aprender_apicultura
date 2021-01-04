@@ -8,71 +8,75 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace JuegoInteractivoApicultura
 {
     public partial class VistaGeneral : Form
     {
         private List<Colmena> colmena;
-        private int colonias_debiles;
-        private int colonias_fuertes;
-        private int colonias_enjambradas;
-        private int reinas_viejas;
-        private int colonias_sin_reina;
+        private int numero_de_colmenas_vivas = 0;
+        private int colonias_debiles = 0;
+        private int colonias_fuertes = 0;
+        private int colonias_enjambradas = 0;
+        private int reinas_mayores_a_2 = 0;
+        private int colonias_sin_reina = 0;
 
         public VistaGeneral(Object col)
         {
             InitializeComponent();
-            colonias_debiles = 0;
-            colonias_fuertes = 0;
-            colonias_enjambradas = 0;
-            reinas_viejas = 0;
-            colonias_sin_reina = 0;
+            this.StartPosition = FormStartPosition.CenterScreen;
             colmena = (List<Colmena>)col;
             mostrarInformacion();
-           
+            Program.reloj.Stop();
         }
-    
+        private void inspeccionarColmenas()
+        {
+            foreach (Colmena col in colmena)
+            {
+                if (col.Abejas_totales != 0)
+                    numero_de_colmenas_vivas++;
 
-        private void mostrarInformacion() {
-            textBox1.Text = colmena.Count.ToString();
+                if (col.Abejas_totales <= 30000)
+                    colonias_debiles++;
+                else 
+                    colonias_fuertes++;
+                  
+                if (col.Estres > 10)
+                    colonias_enjambradas++;
+
+                if (col.hayAbejaReina() == "No")
+                    colonias_sin_reina++;
+                else if (col.Reina.Mi_vida.Anios < 2)
+                    reinas_mayores_a_2++;
+
+            }
+        }
+
+        private void mostrarInformacion()
+        {
+           
+            textBox2.Text = Program.colmenas_muertas.ToString(); //Colemnas muertas
+            
             if (colmena.Count != 0)
             {
                 inspeccionarColmenas();
-                textBox2.Text = colonias_debiles.ToString();
-                textBox3.Text = colonias_fuertes.ToString();
-                textBox4.Text = colonias_enjambradas.ToString();
-                textBox5.Text = reinas_viejas.ToString();
-                textBox6.Text = colonias_sin_reina.ToString();
+                textBox1.Text = numero_de_colmenas_vivas.ToString(); //Numero de colmenas
+                textBox3.Text = colonias_debiles.ToString(); //Colonias fuertes
+                textBox4.Text = colonias_fuertes.ToString(); //Colonias débiles
+                textBox5.Text = colonias_enjambradas.ToString(); //Colonias enjambradas
+                textBox6.Text = reinas_mayores_a_2.ToString(); //Abejas reinas mayores a 2 años:
+                textBox7.Text = colonias_sin_reina.ToString(); //Colonias sin reina
             }
-        }
-        private void inspeccionarColmenas() {      
-            foreach (Colmena col in colmena) {
-                /*
-                if (col.getCategoria() == Categoria.DEBIL)
-                    colonias_debiles++;
-                else if (col.getCategoria() == Categoria.FUERTE)
-                    colonias_fuertes++;
-                    */
-                if (col.getNivel_de_enjambrazon() != Enjambrazon.NULO)
-                    colonias_enjambradas++;
-                if (col.hayAbejaReina() == "No")
-                    colonias_sin_reina++;
-                else if (col.getReina().getVida().Anios > 2)
-                    reinas_viejas++;
-
-            }            
-        }
-      
-
+        }       
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void VistaGeneral_FormClosed(object sender, FormClosedEventArgs e)
         {
-
         }
     }
 }
